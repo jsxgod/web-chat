@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4000
 
 const router = require('./router')
 
-const cors = require('cors')
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
@@ -38,6 +38,8 @@ io.on('connection', (socket) => {
         socket.broadcast.to(user.room).emit('message', { user: 'admin', content: `${user.name} joined.` });
 
         socket.join(user.room);
+        
+        io.to(user.room).emit('roomData', {room: user.room, users: getRoomUsers(user.room)});
 
         callback();
     });
@@ -51,7 +53,13 @@ io.on('connection', (socket) => {
     })
     
     socket.on('disconnect', () => {
-        console.log('Client disconnected...');
+        const user = removeUser(socket.id);
+
+        if(user){
+            io.to(user.room).emit('message', {user: 'admin', content: `${user.name} left the room.`})
+            io.to(user.room).emit('roomData', {room: user.room, users: getRoomUsers(user.room)});
+
+        }
     });
 });
 
