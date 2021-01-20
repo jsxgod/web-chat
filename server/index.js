@@ -25,10 +25,14 @@ const io = socketio(server, {
 io.on('connection', (socket) => {
     console.log('New client connection...')
 
+    socket.on('join', ({ name, room }, callback) => {
+        console.log(`${name} joined room: ${room}`);
+
+    });
     
     socket.on('disconnect', () => {
         console.log('Client disconnected...')
-    })
+    });
 });
 
 app.use(cors())
