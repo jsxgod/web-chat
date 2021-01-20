@@ -6,9 +6,17 @@ const PORT = process.env.PORT || 4000
 
 const router = require('./router')
 
+const cors = require('cors')
+
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
 
 /**
     Acts as a "main" for this file because we have to constatly monitor
@@ -23,6 +31,7 @@ io.on('connection', (socket) => {
     })
 });
 
+app.use(cors())
 app.use('/', router);
 
 server.listen(PORT, () => console.log(`server started on port ${PORT}`));
