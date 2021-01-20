@@ -20,7 +20,14 @@ const Chat = (props) => {
         setName(parsedData.name);
         setRoom(parsedData.room);
 
-        socket.emit('onJoin', { name, room });
+        socket.emit('join', { name: parsedData.name, room: parsedData.room }, () => {});
+        
+        // unMount
+        return () => {
+            socket.emit('disconnect');
+
+            socket.off();
+        }
     }, [ENDPOINT, props.location.search])
     
     return (
