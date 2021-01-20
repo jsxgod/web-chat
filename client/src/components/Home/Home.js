@@ -8,7 +8,7 @@ const Home = () => {
     const [room, setRoom] = useState('');
 
     return (
-        <div className="container">
+        <div className="home-container">
             <div className="login-container">
                 <h1 className="heading">Welcome to WebChat</h1>
                 <div><input className="login-input" placeholder="Name" type="text" onChange={(event) => setName(event.target.value)} /></div>
