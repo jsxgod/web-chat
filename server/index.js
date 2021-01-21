@@ -25,8 +25,6 @@ const io = socketio(server, {
     the {socket} of connected client
 */
 io.on('connection', (socket) => {
-    console.log('New client connection...')
-
     socket.on('join', ({ name, room }, callback) => {
         const { error, user } = addUser({ id: socket.id, name, room });
 
