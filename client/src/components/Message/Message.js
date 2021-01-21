@@ -23,7 +23,7 @@ const Message = (props) => {
             : (
                 <div className="message-container justifyStart">
                     <div className="message-blob backgroundLight">
-                        <p className="message-content colorWhite">{props.message.content}</p>
+                        <p className="message-content colorWhite">{ReactEmoji.emojify(props.message.content)}</p>
                     </div>
                     <p className="message-username pl-10">{props.message.user}</p>
                 </div>                
