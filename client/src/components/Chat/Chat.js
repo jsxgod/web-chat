@@ -28,7 +28,7 @@ const Chat = (props) => {
         
         // unMount
         return () => {
-            socket.emit('disconnect');
+            socket.disconnect();
 
             socket.off();
         }
