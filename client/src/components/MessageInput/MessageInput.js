@@ -14,7 +14,7 @@ const MessageInput = (props) => {
             onKeyPress={event => event.key === 'Enter' ? props.sendMessage(event) : null}
             />
 
-            <button className="send-message-btn" onClick={(event) => props.sendMessage(event)}>Send</button>
+            <button className="send-message-btn" onClick={(event) => props.sendMessage(event)}>➪</button>
         </form>
     )
 }
