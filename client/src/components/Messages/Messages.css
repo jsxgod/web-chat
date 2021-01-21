@@ -1,0 +1,7 @@
+
+.messages-container{
+    padding: 5% 0;
+    overflow: auto;
+    flex: auto;
+    background: #202020;
+}

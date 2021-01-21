@@ -13,7 +13,7 @@ const InfoBar = (props) => {
                 <h3>{props.room}</h3>
             </div>
             <div className="room-exit">
-                <a href="/"><img src={exitIcon} alt="EXIT "/></a>
+                <a href="/"><img className="exit-icon" src={exitIcon} alt="EXIT "/></a>
             </div>
         </div>
     )

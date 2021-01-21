@@ -1,0 +1,41 @@
+
+.message-form{
+    display: flex;
+    height: 15%;
+}
+
+.message-input{
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 5%;
+    width: 80%;
+    font-size: 1.2em;
+}
+
+.send-message-btn{
+    font-size: 2em;
+    width: 100%;
+    color: #fff;
+    background: #5416b4;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 20px;
+    display: inline-block;
+    border: none;
+    width: 20%;
+
+    transition: 0.2s ease;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.send-message-btn:hover{
+    background: #6119ce;
+}
+
+.message-input:focus, textarea:foxus, select:focus{
+    outline: none;
+}
