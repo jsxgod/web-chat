@@ -13,7 +13,7 @@ const Chat = (props) => {
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const ENDPOINT = 'localhost:4000';
+    const ENDPOINT = 'http://localhost:4000';
 
     useEffect(() => {
         /* Location is coming from React Router as a prop*/
@@ -36,9 +36,9 @@ const Chat = (props) => {
 
     useEffect(() => {
         socket.on('message', (message) => {
-            setMessages([...messages, message]);
+            setMessages(m => [...m, message]);
         })
-    }, [messages]);
+    }, []);
 
     const sendMessage = (event) => {
         event.preventDefault();
