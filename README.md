@@ -1,7 +1,7 @@
 # Web Chat created with React, Socket.io, Express and NodeJS
 
 # Site
-webchat-jsxgod.netlify.app
+https://webchat-jsxgod.netlify.app/
 
 # How to run
 - # Client
